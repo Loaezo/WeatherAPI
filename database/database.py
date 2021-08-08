@@ -10,6 +10,9 @@ database = peewee.MySQLDatabase(
 
 
 class Weather(peewee.Model):
+    """
+    Fields that are currently saved in the database using Peewee
+    """
     location_name = peewee.CharField(max_length=64)
     temperature_celsius = peewee.SmallIntegerField()
     temperature_farenheit = peewee.SmallIntegerField()

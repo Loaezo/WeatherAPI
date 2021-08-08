@@ -1,4 +1,10 @@
+
 def wind_direction(degrees):
+    """
+    Function to convert degrees (360-based) to cardinal points
+    :param degrees: receives the degrees the wind is blowing
+    :return: the orientation as a string
+    """
     north = range(0, 11)
     north_2 = range(348, 360)
     north_northeast = range(11, 34)

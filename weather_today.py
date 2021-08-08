@@ -5,11 +5,13 @@ import datetime
 from ranges.wind_strength import wind_description
 from ranges.compass import wind_direction
 
-api_key = '1508a9a4840a5574c822d70ca2132032'  # environment variable
-# api_key = 'e59787e474f33127ab82d3d07a47ba33'
+api_key = '1508a9a4840a5574c822d70ca2132032'  # test api key, given by an example.\
+# It will be stored in an environment variable
+# api_key = 'e59787e474f33127ab82d3d07a47ba33' # actual api key, given when registered to openweatherapi.org\
+# It will be stored in an environment variable
 city = 'London'
 country_abbreviated = 'gb'
-url = 'http://api.openweathermap.org/data/2.5/weather?q={},{}&appid={}&units=metric'\
+url = 'http://api.openweathermap.org/data/2.5/weather?q={},{}&appid={}&units=metric' \
     .format(city, country_abbreviated, api_key)
 response = requests.get(url)
 data = json.loads(response.text)
@@ -19,13 +21,13 @@ location_name = data['name'] + ',' + data['sys']['country']
 temperature_celsius_float = round(data['main']['temp'], 2)
 temperature_celsius = str(temperature_celsius_float) + '°C'
 
-temperature_farenheit_float = round((data['main']['temp']) * 9/5 + 32, 2)
+temperature_farenheit_float = round((data['main']['temp']) * 9 / 5 + 32, 2)
 temperature_farenheit = str(temperature_farenheit_float) + '°F'
 
 wind_speed = data['wind']['speed']
 wind_degrees = data['wind']['deg']
-wind = wind_description(wind_speed*100) + ', '\
-       + str(wind_speed) + ' m/s, '\
+wind = wind_description(wind_speed * 100) + ', ' \
+       + str(wind_speed) + ' m/s, ' \
        + wind_direction(wind_degrees)
 
 cloudiness = data['weather'][0]['description']

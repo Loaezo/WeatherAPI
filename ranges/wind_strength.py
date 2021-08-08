@@ -1,4 +1,10 @@
+
 def wind_description(speed):
+    """
+    Converts the wind speed to te description using the Beaufort scale
+    :param speed: The wind speed in m/s
+    :return: the Beaufort's scale description
+    """
     calm = range(0, 50)
     light_air = range(50, 150)
     light_breeze = range(150, 330)
