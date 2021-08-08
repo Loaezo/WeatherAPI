@@ -2,16 +2,15 @@ import requests
 import json
 import datetime
 
-from wind_strength import wind_description
-from compass import wind_direction
+from ranges.wind_strength import wind_description
+from ranges.compass import wind_direction
 
-api_key = '1508a9a4840a5574c822d70ca2132032'
+api_key = '1508a9a4840a5574c822d70ca2132032'  # environment variable
 # api_key = 'e59787e474f33127ab82d3d07a47ba33'
 city = 'London'
 country_abbreviated = 'gb'
 url = 'http://api.openweathermap.org/data/2.5/weather?q={},{}&appid={}&units=metric'\
     .format(city, country_abbreviated, api_key)
-
 response = requests.get(url)
 data = json.loads(response.text)
 
@@ -47,3 +46,4 @@ geo_coordinates = '[' + longitude + ' ' + latitude + ']'
 
 requested_time = str(datetime.datetime.now())[:19]
 
+print(data)

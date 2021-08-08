@@ -6,7 +6,7 @@ database = peewee.MySQLDatabase(
     password='1',
     host='localhost',
     port=3306
-)
+)  # environment variables
 
 
 class Weather(peewee.Model):
