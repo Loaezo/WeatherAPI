@@ -32,7 +32,7 @@ def wind_direction(degrees):
         return direction
 
     elif degrees in north_northeast:
-        direction = 'north_northeast'
+        direction = 'north northeast'
         return direction
 
     elif degrees in northeast:
@@ -40,7 +40,7 @@ def wind_direction(degrees):
         return direction
 
     elif degrees in east_northeast:
-        direction = 'east_northeast'
+        direction = 'east northeast'
         return direction
 
     elif degrees in east:
@@ -48,7 +48,7 @@ def wind_direction(degrees):
         return direction
 
     elif degrees in east_southeast:
-        direction = 'east_southeast'
+        direction = 'east southeast'
         return direction
 
     elif degrees in southeast:
@@ -56,7 +56,7 @@ def wind_direction(degrees):
         return direction
 
     elif degrees in south_southeast:
-        direction = 'south_southeast'
+        direction = 'south southeast'
         return direction
 
     elif degrees in south:
@@ -64,7 +64,7 @@ def wind_direction(degrees):
         return direction
 
     elif degrees in south_southwest:
-        direction = 'south_southwest'
+        direction = 'south southwest'
         return direction
 
     elif degrees in southwest:
@@ -72,7 +72,7 @@ def wind_direction(degrees):
         return direction
 
     elif degrees in west_southwest:
-        direction = 'west_southwest'
+        direction = 'west southwest'
         return direction
 
     elif degrees in west:
@@ -80,7 +80,7 @@ def wind_direction(degrees):
         return direction
 
     elif degrees in west_northwest:
-        direction = 'west_northwest'
+        direction = 'west northwest'
         return direction
 
     elif degrees in northwest:
@@ -88,5 +88,5 @@ def wind_direction(degrees):
         return direction
 
     elif degrees in north_northwest:
-        direction = 'north_northwest'
+        direction = 'north northwest'
         return direction
