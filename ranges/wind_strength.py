@@ -70,3 +70,4 @@ def wind_description(speed):
     elif speed in hurricane:
         description = 'calm'
         return description
+

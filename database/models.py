@@ -29,6 +29,7 @@ class Weather(BaseModel):
 
     class Meta:
         database = database_connection
+        db_table = 'weather'
         table_name = 'Weather'
 
 
@@ -68,3 +69,7 @@ class WeatherModel(BaseModel):
     class Config:
         orm_mode = True
         getter_dict = PeeweeGetterDict
+
+
+def get_weather_data():
+    return Weather.select().where(Weather.id == 1).dicts().get()

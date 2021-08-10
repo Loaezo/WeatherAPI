@@ -1,6 +1,7 @@
 import requests
 import json
-import datetime
+from datetime import datetime
+import time
 
 from ranges.wind_strength import wind_description
 from ranges.compass import wind_direction
@@ -24,7 +25,7 @@ temperature_farenheit = str(temperature_farenheit_float) + ' °F'
 
 wind_speed = data['wind']['speed']
 wind_degrees = data['wind']['deg']
-wind = wind_description(wind_speed * 100) + ', ' \
+wind = str(wind_description(round(wind_speed * 100, 2))) + ', ' \
        + str(wind_speed) + ' m/s, ' \
        + wind_direction(wind_degrees)
 
@@ -35,14 +36,16 @@ pressure = str(data['main']['pressure']) + ' hPa'
 humidity = str(data['main']['humidity']) + '%'
 
 sunrise_epoch = data['sys']['sunrise']
-sunrise = datetime.datetime.fromtimestamp(sunrise_epoch).strftime('%c')[11:19]
+sunrise = datetime.fromtimestamp(sunrise_epoch).strftime('%c')[11:19]
 
 sunset_epoch = data['sys']['sunset']
-sunset = datetime.datetime.fromtimestamp(sunset_epoch).strftime('%c')[11:19]
+sunset = datetime.fromtimestamp(sunset_epoch).strftime('%c')[11:19]
 
 longitude = str(round(data['coord']['lon'], 2))
 latitude = str(round(data['coord']['lat'], 2))
 geo_coordinates = '[' + longitude + ' ' + latitude + ']'
 
-requested_time = str(datetime.datetime.now())[:19]
-print(sunset)
+
+epoch_now = time.time()
+requested_time = str(datetime.now())[:19]
+print(wind)
