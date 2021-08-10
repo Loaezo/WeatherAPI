@@ -3,7 +3,7 @@ import datetime
 
 from pydantic.utils import GetterDict
 from typing import Any
-from database import weather_today
+from database.weather_today import consume_api
 from database.database import database_connection
 from database.base import BaseModel
 
@@ -33,14 +33,14 @@ class Weather(BaseModel):
         table_name = 'Weather'
 
 
-def save_weather_information():
-    weather_object = Weather(location_name=weather_today.location_name,
-                             temperature_celsius=weather_today.temperature_celsius,
-                             temperature_farenheit=weather_today.temperature_farenheit,
-                             wind=weather_today.wind, cloudiness=weather_today.cloudiness,
-                             pressure=weather_today.pressure, humidity=weather_today.humidity,
-                             sunrise=weather_today.sunrise, sunset=weather_today.sunset,
-                             geo_coordinates=weather_today.geo_coordinates)
+def save_weather_information(city='la plata', country='ar'):
+    weather_object = Weather(location_name=consume_api(city, country)[0],
+                             temperature_celsius=consume_api(city, country)[1],
+                             temperature_farenheit=consume_api(city, country)[2],
+                             wind=consume_api(city, country)[3], cloudiness=consume_api(city, country)[4],
+                             pressure=consume_api(city, country)[5], humidity=consume_api(city, country)[6],
+                             sunrise=consume_api(city, country)[7], sunset=consume_api(city, country)[8],
+                             geo_coordinates=consume_api(city, country)[9])
     weather_object.save()
     return weather_object
 
@@ -73,3 +73,7 @@ class WeatherModel(BaseModel):
 
 def get_weather_data():
     return Weather.select().where(Weather.id == 1).dicts().get()
+
+
+def get_weather_field():
+    return Weather.select(Weather.requested_time).where(Weather.id == 1)
