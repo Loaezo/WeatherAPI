@@ -7,6 +7,14 @@ from ranges.compass import wind_direction
 
 
 def consume_api(city_1, country_1):
+    """
+    Function that evaluates the data returned from openweathermap.org
+    and converts the information in the requested format
+    :param city_1: The city from where you want the current weather
+    :param country_1: The country the city belongs to, this is to prevent ambiguous results,
+                    as there are many cities with the same name
+    :return: The fields that are to be saved in the database in the required format
+    """
     api_key = '1508a9a4840a5574c822d70ca2132032'
     # api_key = 'e59787e474f33127ab82d3d07a47ba33'
 

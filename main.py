@@ -15,7 +15,7 @@ app = FastAPI(title='Weather API',
 
 
 @app.get("/weather", response_class=JSONResponse)
-def get_weather(city: str, country: str):
+def get_weather(country: str, city: str):
     try:
         if len(country) == 2:
             if get_weather_field() - datetime.datetime.now() > timedelta(minutes=2):
