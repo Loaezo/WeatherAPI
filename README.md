@@ -34,3 +34,5 @@ This is how the previous URL would look like:
 ```http://127.0.0.1:8000/weather?city=La%20Plata&country=AR```
 
 You can try experimenting with cities all around the world!
+
+A brief note: The app uses a string-type environment variable for the api key that you need to declare (under the name ```api_key```) to be able to use the API provided by OpenWeatherMap.org and it can be obtained by registering for free, it will be active after approximately 30 minutes after you request it.
