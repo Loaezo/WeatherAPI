@@ -1,15 +1,13 @@
 import datetime
-import json
-
 from datetime import timedelta
 
 from fastapi import FastAPI
 from fastapi.responses import JSONResponse
 
-
 from database.database import database_connection
 from database.models import Weather, get_weather_data, get_weather_field
 from database.models import save_weather_information
+
 
 app = FastAPI(title='Weather API',
               description='Tech evaluation for Globant <3')

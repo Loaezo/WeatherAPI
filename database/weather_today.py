@@ -1,9 +1,18 @@
 import requests
 import json
+
+from pydantic import BaseSettings
 from datetime import datetime
 
 from ranges.wind_strength import wind_description
 from ranges.compass import wind_direction
+
+
+class Settings(BaseSettings):
+    api_key: str
+
+
+settings = Settings()
 
 
 def consume_api(city_1, country_1):
@@ -15,8 +24,7 @@ def consume_api(city_1, country_1):
                     as there are many cities with the same name
     :return: The fields that are to be saved in the database in the required format
     """
-    api_key = '1508a9a4840a5574c822d70ca2132032'
-    # api_key = 'e59787e474f33127ab82d3d07a47ba33'
+    api_key = settings.api_key
 
     url = 'http://api.openweathermap.org/data/2.5/weather?q={},{}&appid={}&units=metric' \
         .format(city_1, country_1, api_key)
