@@ -17,7 +17,7 @@ def wind_description(speed):
     strong_gale = range(2070, 2440)
     storm = range(2440, 2840)
     violent_storm = range(2840, 3260)
-    hurricane = range(3260, 50)
+    hurricane = range(3260, 5000)
 
     if speed in calm:
         description = 'Calm'
@@ -48,7 +48,7 @@ def wind_description(speed):
         return description
 
     elif speed in high_wind:
-        description = 'Strong breeze'
+        description = 'High wind'
         return description
 
     elif speed in gale:
@@ -56,18 +56,18 @@ def wind_description(speed):
         return description
 
     elif speed in strong_gale:
-        description = 'calm'
+        description = 'Strong gale'
         return description
 
     elif speed in storm:
-        description = 'calm'
+        description = 'Storm'
         return description
 
     elif speed in violent_storm:
-        description = 'calm'
+        description = 'Violent storm'
         return description
 
     elif speed in hurricane:
-        description = 'calm'
+        description = 'Hurricane'
         return description
 

@@ -39,7 +39,7 @@ def save_weather_information(country, city):
     :param country: Country from where you want the weather. This is to avoid confusion,
                     as there are multiple cities with the same name
     :param city: City you want the weather from
-    :return:
+    :return: the weather object queried from the database
     """
     weather_object = Weather(location_name=consume_api(country, city)[0],
                              temperature_celsius=consume_api(country, city)[1],

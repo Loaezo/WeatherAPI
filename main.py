@@ -1,4 +1,5 @@
 import datetime
+import json
 
 from datetime import timedelta
 
@@ -15,7 +16,7 @@ app = FastAPI(title='Weather API',
 
 
 @app.get("/weather", response_class=JSONResponse)
-def get_weather(country: str, city: str):
+def get_weather(city: str, country: str):
     try:
         if len(country) == 2:
             if get_weather_field() - datetime.datetime.now() > timedelta(minutes=2):
@@ -28,7 +29,7 @@ def get_weather(country: str, city: str):
         else:
             return {'ValueError: The country length should be 2 characters long'}
     except ValueError:
-        print('The country length should be 2 characters long')
+        raise
 
 
 @app.on_event('startup')
