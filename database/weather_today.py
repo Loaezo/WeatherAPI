@@ -9,7 +9,7 @@ from ranges.compass import wind_direction
 
 
 class Settings(BaseSettings):
-    api_key: str
+    api_key: str = 'e59787e474f33127ab82d3d07a47ba33'
 
 
 settings = Settings()
